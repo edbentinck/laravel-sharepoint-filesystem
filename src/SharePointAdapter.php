@@ -236,7 +236,7 @@ class SharePointAdapter implements FilesystemAdapter
             $path,
             $metadata['size'] ?? null,
             null,
-            $metadata['lastModifiedDateTime'] ?? null,
+            isset($metadata['lastModifiedDateTime']) ? strtotime($metadata['lastModifiedDateTime']) : null,
             $metadata['file']['mimeType'] ?? null
         );
     }
